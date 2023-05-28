@@ -1,0 +1,29 @@
+{
+  "products": [
+    {
+      "name": "Bich Ngoc",
+      "price": 3000,
+      "id": 3
+    },
+    {
+      "name": "Lâm Ánh Thu",
+      "price": 910,
+      "id": 5
+    },
+    {
+      "name": "Thanh Tam",
+      "price": 10,
+      "id": 6
+    },
+    {
+      "name": "Doan Vinh",
+      "price": 310,
+      "id": 7
+    },
+    {
+      "name": "Lê Văn Võ",
+      "price": 99,
+      "id": 8
+    }
+  ]
+}

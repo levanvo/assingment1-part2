@@ -1,0 +1,27 @@
+<div class="bg-blue-500 text-white">
+    <p class="text-center text-2xl font-bold mb-5">Product-list works!</p> 
+</div>
+<div class="flex justify-center">
+    <a routerLink="addPr"><button class="w-44 hover:w-48 duration-200 h-7 bg-green-500 hover:bg-green-600 text-white rounded-md">Add product</button></a>
+</div>
+<table class="w-[700px] mx-auto text-center mt-5 ">
+    <thead>
+        <tr class="bg-gray-500 text-white font-medium ">
+            <th>#</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Handle</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let show of allProducts; index as i" class="hover:bg-gray-100 font-normal">
+            <td>{{i+1}}</td>
+            <td>{{show.name}}</td>
+            <td>${{show.price}}</td>
+            <td class="flex justify-center space-x-5 borderTable">
+                <button (click)="RemovePr(show.id)" class="w-28 h-7 button-manager bg-red-400 hover:bg-red-500 text-white">Remove</button>
+                <a routerLink="updatePr/{{show.id}}"><button class="w-28 h-7 button-manager bg-blue-400 hover:bg-blue-500 text-white">Update</button></a>
+            </td>
+        </tr>
+    </tbody>
+</table>
