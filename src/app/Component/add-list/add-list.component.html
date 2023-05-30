@@ -1,17 +1,16 @@
-<div class="bg-gray-400 text-white">
-    <a routerLink="">
-        <p class="text-center text-2xl font-bold mb-5">Add-list works!</p>
-    </a>
-</div>
+<a routerLink=""><p class="text-center font-bold text-2xl bg-orange-500 text-white mb-5 ">add-list works!</p></a>
 
-<form (ngSubmit)="AddPr()" class="w-[700px] h-[200px] mx-auto bg-gray-100 mt-20">
-    <p class="text-center font-medium mb-1">Name</p>
-    <input class="text-center outline-0 inpForm border border-gray-400 rounded-lg w-[700px] h-8" type="text"
-        [(ngModel)]="objectAdd.name" name="name" placeholder="...name ?">
-    <p class="text-center font-medium mb-1">Price</p>
-    <input class="text-center outline-0 inpForm border border-gray-400 rounded-lg w-[700px] h-8" type="number"
-        [(ngModel)]="objectAdd.price" name="price" placeholder="...price ?">
-    <div class="flex justify-center mt-7">
-        <button class="w-36 h-7 bg-sky-500 active:bg-sky-600 text-white rounded-md">Add</button>
-    </div>
+<form (ngSubmit)="OnaddPr()" class="w-[700px] mx-auto bg-gray-100 h-[200px]">
+    <br>
+    <p class="text-center font-medium">Name</p>
+    <input class="text-center outline-0 w-[700px] border border=gray-400 rounded-md inputForm"
+     type="text" [(ngModel)]="ObjectAdd.name" name="name" placeholder="...name ?">
+
+     <p class="text-center font-medium">Price</p>
+    <input class="text-center outline-0 w-[700px] border border=gray-400 rounded-md inputForm"
+     type="number" [(ngModel)]="ObjectAdd.price" name="price" placeholder="...price ?">
+
+     <div class="flex justify-center mt-5">
+        <button class="w-40 h-8 bg-gray-600 hover:bg-gray-700 active:bg-black text-white rounded-md">Add</button>
+     </div>
 </form>

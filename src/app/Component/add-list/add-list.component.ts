@@ -7,33 +7,25 @@ import { ServiceService } from 'src/app/service.service';
   styleUrls: ['./add-list.component.scss']
 })
 export class AddListComponent {
-  allProducts: any[] = [];
-  objectAdd:any={
+  ObjectAdd:any={
     name:"",
     price:0,
-  }
+  };
+  allPr: any[] = [];
   constructor(
-    private controlPr: ServiceService
+    private controlPr: ServiceService,
   ) {
     this.controlPr.getAllPr().subscribe((data: any) => {
-      this.allProducts = data;
-    })
-  }
-  AddPr(){
-    // let b=true;
-    // this.allProducts.map((show:any)=>{
-    //   if(show.name!=this.objectAdd.name){
-
-    //   }else{
-    //     b=false;
-    //   }
-    // })
-    // if(b=false){
-    //   alert("Ten bi trung !");
-    // }
-    this.controlPr.addPr(this.objectAdd).subscribe();
-    this.allProducts=[this.allProducts,{...this.objectAdd}];
-    window.location.href="";
-    alert("Thêm thành công SP: "+ this.objectAdd.name);
+      this.allPr = data;
+    });
   };
+
+  OnaddPr(){
+    this.controlPr.addPr(this.ObjectAdd).subscribe();
+    // this.allPr=[...this.allPr,...this.ObjectAdd];
+    alert("Add product successfully !");
+    window.location.href="";
+  };
+
 };
+

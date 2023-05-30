@@ -1,36 +1,34 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 import { ServiceService } from 'src/app/service.service';
-
+import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-update-list',
   templateUrl: './update-list.component.html',
   styleUrls: ['./update-list.component.scss']
 })
 export class UpdateListComponent {
-  allProducts: any[] = [];
-  objectUpdate:any={
-    name:"",
-    price:0,
-  }
+  allPr: any[] = [];
+  ObjectUpdate: any = {
+    name: "",
+    price: 0,
+  };
   constructor(
     private controlPr: ServiceService,
-    private router:ActivatedRoute,
+    private router: ActivatedRoute,
   ) {
     this.controlPr.getAllPr().subscribe((data: any) => {
-      this.allProducts = data;
+      this.allPr = data;
     });
-    this.router.paramMap.subscribe((getId:any)=>{
-      const id = Number(getId.get("id"));
-      this.controlPr.getOnePr(id).subscribe((dataPr:any)=>{
-        this.objectUpdate=dataPr;
-      });      
+    this.router.paramMap.subscribe((idPr: any) => {
+      const id = Number(idPr.get("id"));
+      this.controlPr.getOnePr(id).subscribe((dataOne: any) => {
+        this.ObjectUpdate = dataOne;
+      });
     });
   };
-
-  UpdatePr(){
-    this.controlPr.updatePr(this.objectUpdate).subscribe();
-    window.location.href="";
-    alert("Cập nhật thành công !");
-  }
+  OnupdatePr() {
+    this.controlPr.updatePr(this.ObjectUpdate).subscribe();
+    alert(`Update: ${this.ObjectUpdate.name} successfully !`);
+    window.location.href = "";
+  };
 };

@@ -1,12 +1,14 @@
-<div class="bg-blue-500 text-white">
-    <p class="text-center text-2xl font-bold mb-5">Product-list works!</p> 
+<p class="text-center font-bold text-2xl bg-sky-600 text-white mb-5">product-list works!</p>
+<div class="w-44 h-8 flex justify-center mx-auto mb-4">
+<a routerLink="addPr" class=" w-44 h-8 ">
+    <p class="text-center w-44 h-8 bg-green-500 mx-auto leading-8 text-white font-bold hover:scale-110 duration-200 mb-4">Add product</p>
+</a>
 </div>
-<div class="flex justify-center">
-    <a routerLink="addPr"><button class="w-44 hover:w-48 duration-200 h-7 bg-green-500 hover:bg-green-600 text-white rounded-md">Add product</button></a>
-</div>
-<table class="w-[700px] mx-auto text-center mt-5 ">
+
+
+<table class="w-[700px] mx-auto text-center">
     <thead>
-        <tr class="bg-gray-500 text-white font-medium ">
+        <tr class="font-bold bg-gray-400 text-white">
             <th>#</th>
             <th>Name</th>
             <th>Price</th>
@@ -14,13 +16,15 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let show of allProducts; index as i" class="hover:bg-gray-100 font-normal">
+        <tr *ngFor="let data of allPr; index as i" class="hover:bg-gray-200">
             <td>{{i+1}}</td>
-            <td>{{show.name}}</td>
-            <td>${{show.price}}</td>
-            <td class="flex justify-center space-x-5 borderTable">
-                <button (click)="RemovePr(show.id)" class="w-28 h-7 button-manager bg-red-400 hover:bg-red-500 text-white">Remove</button>
-                <a routerLink="updatePr/{{show.id}}"><button class="w-28 h-7 button-manager bg-blue-400 hover:bg-blue-500 text-white">Update</button></a>
+            <td>{{data.name}}</td>
+            <td>${{data.price}}</td>
+            <td class="border-none flex space-x-2 justify-center">
+                <button (click)="Remove(data.id)" class="w-28 h-8 bg-red-500 hover:bg-red-600 text-white">Remove</button>
+                <a routerLink="updatePr/{{data.id}}">
+                    <button class="w-28 h-8 bg-sky-500 hover:bg-sky-600 text-white">Update</button>
+                </a>
             </td>
         </tr>
     </tbody>

@@ -7,19 +7,22 @@ import { ServiceService } from 'src/app/service.service';
   styleUrls: ['./product-list.component.scss']
 })
 export class ProductListComponent {
-  allProducts: any[] = [];
+  allPr: any[] = [];
   constructor(
-    private controlPr: ServiceService
+    private controlPr: ServiceService,
   ) {
     this.controlPr.getAllPr().subscribe((data: any) => {
-      this.allProducts = data;
-    })
-  }
-  RemovePr(id: any) {
-    const x = window.confirm("Are you sure ?");
-    if (x) {
-      this.controlPr.deletePr(id).subscribe();
-      this.allProducts = this.allProducts.filter((item: any) => item.id != id);
-    }
-  }
-}
+      this.allPr = data;
+    });
+  };
+
+  Remove(id: any) {
+    const confirm = window.confirm("are you sure ?");
+    if (confirm) {
+      this.controlPr.removePr(id).subscribe();
+      this.allPr = this.allPr.filter((item: any) => item.id != id);
+      alert(`Remove successfully !`);
+    };
+  };
+
+};
